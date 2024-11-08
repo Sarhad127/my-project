@@ -10,7 +10,10 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ${matrix.os}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
     permissions:
       contents: read
 
@@ -30,6 +33,10 @@ jobs:
 
       - name: Build with Gradle Wrapper
         run: ./gradlew build
+
+  publish:
+    runs-on: ubuntu-latest
+    needs: build
 
   dependency-submission:
 
