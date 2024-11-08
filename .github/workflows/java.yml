@@ -68,7 +68,7 @@ jobs:
             run: |
               docker build -t sarhadb127/myapp:${{ github.sha }} .
               # Optionally, tag with "latest" or version number
-              docker tag sarhadb127/myapp:${{ github.sha }} myusername/myapp:latest
+              docker tag sarhadb127/myapp:${{ github.sha }} sarhadb127/myapp:latest
 
           - name: Push Docker image to Docker Hub
             run: |
